@@ -1,0 +1,41 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "xipe.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+ "MinecraftClientMixin",
+ "KeyboardMixin",
+ "InGameHudMixin",
+ "MixinInGameHud",
+ "XRayLighting",
+ "BlockRender",
+ "MixinClientPlayerEntity",
+ "WorldRendererMixin",
+ "WorldRendererAccessor",
+ "TotemParticleMixin",
+ "SimpleOptionMixin",
+ "MixinHeldItemRenderer",
+ "MixinClientConnection",
+ "LivingEntityRendererMixin",
+ "MixinClientPlayerInteractionManager",
+ "PlayerMoveC2SPacketAccessor",
+ "PlayerInputC2SPacketAccessor",
+ "IInGameHud",
+ "ItemRendererMixin",
+ "ClientPlayerEntityMixin",
+ "ClientPlayerEntityAccessor",
+ "RenderEntityDispatcherMixin",
+ "MinecraftClientAccessor",
+ "MixinParticleManager",
+ "MixinFireworksSparkParticle",
+ "MixinGameRenderer",
+ "MixinInGameOverlayRenderer",
+ "MouseMixin",
+   "ClientPlayerInteractionManagerAccessor",
+   "TntEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

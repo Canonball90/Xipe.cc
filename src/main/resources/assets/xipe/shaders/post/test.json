@@ -1,0 +1,12 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "xipe:test",
+            "intarget": "minecraft:main",
+            "outtarget": "swap"
+        }
+    ]
+}
