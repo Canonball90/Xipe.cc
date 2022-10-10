@@ -161,6 +161,7 @@ public class ModuleManager {
 		modules.add(new MoonGravity());
 		modules.add(new AutoTool());
 		modules.add(new TNTimer());
+		modules.add(new Zoom());
 		}
 	
 	public Mod getModuleByName(String moduleName) {

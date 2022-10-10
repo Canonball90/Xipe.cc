@@ -33,7 +33,8 @@
  "MixinInGameOverlayRenderer",
  "MouseMixin",
    "ClientPlayerInteractionManagerAccessor",
-   "TntEntityRendererMixin"
+   "TntEntityRendererMixin",
+    "SplashScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

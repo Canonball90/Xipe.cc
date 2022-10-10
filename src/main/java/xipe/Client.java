@@ -71,7 +71,6 @@ public class Client implements ModInitializer{
 			}
 			
 			if(key == GLFW.GLFW_KEY_RIGHT_SHIFT) mc.setScreen(ClickGUI.INSTANCE);
-			if(key == GLFW.GLFW_KEY_P) mc.setScreen(MenuGUI.INSTANCE);
 		}
 	}
 	
