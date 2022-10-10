@@ -12,7 +12,6 @@ public class Trigger extends Mod{
 	
 	public Trigger() {
 		super("Trigger", "Automaticly attack the entity you look at", Category.COMBAT);
-		//this.setKey(GLFW.GLFW_KEY_O);
 	}
 	
 	int cooldown = 4;
