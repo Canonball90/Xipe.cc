@@ -14,42 +14,15 @@ public class Speed extends Mod{
 		super("Speed", "Makes you go faster", Category.MOVEMENT);
 	}
 	
+
+	//high jump
 	@Override
 	public void onTick() {
-		GameOptions go = mc.options;
-    	float y = mc.player.getYaw();
-    	int mx = 0, my = 0, mz = 0;
+		nullCheck();
+		if(mc.player.isOnGround() && mc.options.jumpKey.isPressed()) {
+			mc.player.setVelocity(mc.player.getVelocity().x, 1, mc.player.getVelocity().z);
+		}
 
-    	if (go.jumpKey.isPressed()) {
-    		my++;
-    	}
-    	if (go.backKey.isPressed()) {
-    		mz++;
-    	}
-    	if (go.leftKey.isPressed()) {
-    		mx--;
-    	}
-    	if (go.rightKey.isPressed()) {
-    		mx++;
-    	}
-    	if (go.sneakKey.isPressed()) {
-    		my--;
-    	}
-    	if (go.forwardKey.isPressed()) {
-    		mz--;
-    	}
-    	double ts = speed.getValueFloat() / 2;
-        double s = Math.sin(Math.toRadians(y));
-        double c = Math.cos(Math.toRadians(y));
-        double nx = ts * mz * s;
-        double nz = ts * mz * -c;
-        double ny = ts * my;
-        nx += ts * mx * -c;
-        nz += ts * mx * -s;
-        Vec3d nv3 = new Vec3d(nx, ny, nz);
-        mc.player.setVelocity(nv3);
-        KeyBinding.setKeyPressed(mc.options.sneakKey.getDefaultKey(), true);
 		super.onTick();
 	}
-
 }

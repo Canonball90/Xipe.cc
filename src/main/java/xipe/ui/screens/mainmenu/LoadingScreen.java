@@ -17,7 +17,7 @@ public class LoadingScreen extends ResourceTexture {
 
     protected TextureData loadTextureData(ResourceManager resourceManager) {
         try {
-            InputStream input = LoadingScreen.class.getResourceAsStream("/assets/xipe/Loogo.png");
+            InputStream input = LoadingScreen.class.getResourceAsStream("/assets/xipe/Xipecc.png");
             TextureData texture = null;
 
             if( input != null ) {

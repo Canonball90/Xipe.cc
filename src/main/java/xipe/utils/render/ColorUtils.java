@@ -5,24 +5,7 @@ import java.awt.Color;
 import xipe.module.Mod;
 
 public class ColorUtils {
-    public static String colorChar = "§";
-    public static String purple = "§5";
-    public static String red = "§c";
-    public static String aqua = "§b";
-    public static String green = "§a";
-    public static String blue = "§9";
-    public static String darkGreen = "§2";
-    public static String darkBlue = "§1";
-    public static String black = "§0";
-    public static String darkRed = "§4";
-    public static String darkAqua = "§3";
-    public static String lightPurple = "§d";
-    public static String yellow = "§e";
-    public static String white = "§f";
-    public static String gray = "§7";
-    public static String darkGray = "§8";
-    public static String reset = "§r";
-    public static String pingle = "#FF1464";
+
     public static int defaultClientColor = new Color(255, 20, 100).getRGB();
 
     public static Color defaultClientColor() {

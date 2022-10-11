@@ -82,7 +82,6 @@ public class ModuleManager {
 		modules.add(new CrystalAura());
 		modules.add(new AutoTotem());
 		modules.add(new Gui());
-		modules.add(new BedAura());
 		modules.add(new Nuker());
 		modules.add(new Step());
 		modules.add(new ESP());

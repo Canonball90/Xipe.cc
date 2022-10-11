@@ -43,7 +43,7 @@ public class KillAura extends Mod
     public static ModeSetting critMode;
     public static BooleanSetting switchItem;
     
-    
+    //ToDo: Make it render the target
     
     public static KillAura instance;
     
@@ -126,7 +126,7 @@ public class KillAura extends Mod
         RotationUtils.resetPitch();
         RotationUtils.resetYaw();
     }
-    /*
+
     @Override
     public void onWorldRender(MatrixStack matrices) {
     	 final List<LivingEntity> targets = (List)Lists.newArrayList();
@@ -146,7 +146,7 @@ public class KillAura extends Mod
               }
     	super.onWorldRender(matrices);
     }
-    */
+
     static {
         KillAura.modes = new ArrayList<String>();
         KillAura.mode = new ModeSetting("Mode", "Camera", new String[] { "Camera", "Packet" });

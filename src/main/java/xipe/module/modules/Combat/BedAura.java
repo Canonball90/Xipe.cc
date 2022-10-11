@@ -1,5 +1,5 @@
 package xipe.module.modules.Combat;
-
+/*
 import xipe.module.Mod;
 import xipe.module.settings.NumberSetting;
 import com.google.common.collect.Streams;
@@ -29,48 +29,98 @@ public class BedAura extends Mod{
 		super("BedAura", "Explody", Category.COMBAT);
 		addSettings(range, delay);
 	}
-	
-	 int bedSlot = -1;
-	    int oldSlot = -1;
 
-	    int ticks = 0;
-	    
+	//TODO: Rewrite this
 
-	    @Override
-	    public void onTick() {
-	        if (mc.world == null || mc.player == null) {onDisable(); return;}
-	        for (int i = 0; i < 9; i++) {if (mc.player.getInventory().getStack(i).getItem() instanceof BedItem) {bedSlot = i;}}
-	        if (bedSlot == -1) {onDisable(); return;}
-	        if (ticks != delay.getValue()) {ticks++; return;}
-	        else ticks = 0;
-	        if (mc.player == null || mc.world == null) {onDisable(); return;}
-	        List<Entity> players = Streams.stream(mc.world.getEntities()).filter(e -> e instanceof PlayerEntity && mc.player.distanceTo(e) <= range.getValue() && e != mc.player).collect(Collectors.toList());
-	        if (players.isEmpty()) {return;}
-	        PlayerEntity player = (PlayerEntity)players.get(0);
-	        ArrayList<Pair<BlockPos, Direction>> positions = new ArrayList<>();
-	        positions.add(new Pair<>(player.getBlockPos().north().up(), Direction.SOUTH));
-	        positions.add(new Pair<>(player.getBlockPos().east().up(), Direction.WEST));
-	        positions.add(new Pair<>(player.getBlockPos().south().up(), Direction.NORTH));
-	        positions.add(new Pair<>(player.getBlockPos().west().up(), Direction.EAST));
-	        positions.sort(Comparator.comparing(object -> ((Pair<BlockPos, Direction>) object).getLeft().getSquaredDistance(mc.player.getX(), mc.player.getY(), mc.player.getZ())));
-	        for (Pair<BlockPos, Direction> pair : positions) {
-	            BlockPos blockPos = pair.getLeft();
-	            Direction direction = pair.getRight();
-	            oldSlot = mc.player.getInventory().selectedSlot;
-	            mc.player.getInventory().selectedSlot = bedSlot;
-	            if (!(mc.world.getBlockState(blockPos)).getMaterial().isReplaceable()) continue;
-	            if (mc.world.getBlockState(blockPos.offset(direction)).getBlock() instanceof BedBlock) mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, new BlockHitResult(Vec3d.of(blockPos.offset(direction)), Direction.DOWN, blockPos.offset(direction), true));
-	            if (!(mc.world.getBlockState(blockPos).getBlock() instanceof BedBlock))  {
-	                if (direction == Direction.NORTH) mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(-180f, mc.player.getPitch(), true));
-	                if (direction == Direction.EAST) mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(-90f, mc.player.getPitch(), true));
-	                if (direction == Direction.SOUTH) mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(0f, mc.player.getPitch(), true));
-	                if (direction == Direction.WEST) mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(90f, mc.player.getPitch(), true));
-	                mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, new BlockHitResult(Vec3d.of(blockPos), Direction.DOWN, blockPos, false));
-	            }
-	            if (mc.world.getBlockState(blockPos).getBlock() instanceof BedBlock) mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, new BlockHitResult(Vec3d.of(blockPos), Direction.DOWN, blockPos, true));
-	            mc.player.getInventory().selectedSlot = oldSlot;
-	            break;
-	        }
-	    }
+	//BedAura
+	private int delayTimeTicks;
+	private int oldSlot = -1;
+	private boolean isSpoofingAngles;
+	private double yaw;
+	private double pitch;
+	//find
+	private BlockPos findClosestTarget() {
+		List<BlockPos> blocks = new ArrayList<>();
+		Streams.stream(mc.world.getEntities()).filter(entity -> entity instanceof PlayerEntity).forEach(entity -> {
+			BlockPos pos = new BlockPos(entity.getX(), entity.getY(), entity.getZ());
+			if (mc.world.getBlockState(pos).getBlock() instanceof BedBlock) {
+				blocks.add(pos);
+			}
+		});
+		return blocks.stream().min(Comparator.comparing(c -> mc.player.squaredDistanceTo(Vec3d.ofCenter(c)))).orElse(null);
+	}
+
+	//
+
+	//BedAura
+	@Override
+	public void onEnable() {
+		if (mc.player == null) {
+			this.toggle();
+			return;
+		}
+		oldSlot = mc.player.getInventory().selectedSlot;
+	}
+
+	//BedAura
+	@Override
+	public void onDisable() {
+		if (mc.player == null) {
+			return;
+		}
+		if (oldSlot != -1) {
+			mc.player.getInventory().selectedSlot = oldSlot;
+			oldSlot = -1;
+		}
+		if (isSpoofingAngles) {
+			isSpoofingAngles = false;
+		}
+	}
+
+	//BedAura
+	@Override
+	public void onTick() {
+		if (mc.player == null) {
+			this.toggle();
+			return;
+		}
+		if (delayTimeTicks < delay.getValue()) {
+			delayTimeTicks++;
+			return;
+		} else {
+			delayTimeTicks = 0;
+		}
+		List<BlockPos> blocks = findBeds();
+		if (blocks.isEmpty()) {
+			return;
+		}
+		BlockPos target = blocks.get(0);
+		Direction side = getPlaceableSide(target);
+		if (side == null) {
+			return;
+		}
+		BlockPos neighbour = target.offset(side);
+		Direction opposite = side.getOpposite();
+		Vec3d hitVec = new Vec3d(neighbour.getX() + 0.5 + opposite.getOffsetX() * 0.5, neighbour.getY() + 0.5 + opposite.getOffsetY() * 0.5, neighbour.getZ() + 0.5 + opposite.getOffsetZ() * 0.5);
+		int newSlot = -1;
+		for (int i = 0; i < 9; i++) {
+			if (mc.player.getInventory().getStack(i).getItem() instanceof BedItem) {
+				newSlot = i;
+				break;
+			}
+		}
+		if (newSlot == -1) {
+			return;
+		}
+		mc.player.getInventory().selectedSlot = newSlot;
+		rotateVec3d(hitVec);
+		assert mc.interactionManager != null;
+		mc.interactionManager.interactBlock(mc.player, Hand.MAIN_HAND, new BlockHitResult(hitVec, opposite, neighbour, false));
+		mc.player.swingHand(Hand.MAIN_HAND);
+		mc.player.getInventory().selectedSlot = oldSlot;
+		resetRotation();
+	}
 
 }
+
+ */

@@ -11,7 +11,7 @@ public class AntiAim extends Mod{
 		super("Anti-Aim", "Spinny Spinny", Category.WORLD);
 		addSetting(mode);
 	}
-	
+	//ToDo: Make this work
 	@Override
 	public void onTick() {
 		if(mode.isMode("Normal")) {
