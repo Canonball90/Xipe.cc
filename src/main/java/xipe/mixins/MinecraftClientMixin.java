@@ -24,7 +24,7 @@ public class MinecraftClientMixin {
 	
 	 @Inject(method = "getWindowTitle", at = @At("HEAD"), cancellable = true)
 	    public void getWindowTitle(CallbackInfoReturnable<String> ci) {
-	        ci.setReturnValue("Xipe.cc +|+ Version 1.19");
+	        ci.setReturnValue("Xipe.cc +|+ By: CanonBall90,Nitaki_,xracer");
 	    }
 	
 	@Inject(at = @At("TAIL"), method = "scheduleStop")
