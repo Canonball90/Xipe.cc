@@ -32,7 +32,7 @@ public class Strafe extends Mod {
 		
 	public Strafe() {
 		super("Strafe", "Moves, but faster", Category.MOVEMENT);
-		addSettings(speed, mode, autoSprint);
+		addSettings(speed, mode, autoSprint, jump);
 	}
 	
 	private static final Formatting Gray = Formatting.GRAY;
