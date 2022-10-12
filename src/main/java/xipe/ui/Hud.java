@@ -160,7 +160,7 @@ public class Hud {
 			int offset = 0 + index* (fHeight+slideroption);
 			int offsetc = 0 + index* ((int)fcHeight+slideroption);
 			int offset2 = 0;
-			boolean font = ModuleManager.INSTANCE.getModule(HUD.class).customFont.isEnabled();
+			boolean font = ModuleManager.INSTANCE.getModule(HUD.class).customFont.isEnabled(); 
 
 			
 
