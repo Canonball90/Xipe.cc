@@ -25,7 +25,7 @@ public class Strafe extends Mod {
         if (playerListEntry != null) return playerListEntry.getGameMode(); 
         return GameMode.DEFAULT;
     }
-	
+	public BooleanSetting jump = new BooleanSetting("Jump", true);
 	public NumberSetting speed = new NumberSetting("Speed", 0.5, 2, 0.5, 0.1);
 	public ModeSetting mode = new ModeSetting("Mode", "Static", "Static", "Vanilla", "Test", "Packet");
     public BooleanSetting autoSprint = new BooleanSetting("Auto Sprint", false);
@@ -49,7 +49,9 @@ public class Strafe extends Mod {
         } else if (mode.getMode().equalsIgnoreCase("Static")) {
         if(mc.player.isOnGround()) {
         	if(mc.player.input.pressingForward || mc.player.input.pressingBack || mc.player.input.pressingLeft || mc.player.input.pressingRight) {
-        	mc.player.jump();
+			if(jump.isEnabled()){
+        			mc.player.jump();
+			}
         	}
         }
         	GameOptions go = mc.options;
