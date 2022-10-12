@@ -11,7 +11,7 @@ public class HUD extends Mod{
 	final Formatting gre = Formatting.GREEN;
 	final Formatting gold = Formatting.GOLD;
 	final Formatting r = Formatting.RESET;
-	
+	public BooleanSetting customFont = new BooleanSetting("Custom Font", false);
 	public ModeSetting theme = new ModeSetting("Mode", "Normal", "Line", "Rainbow", "Rainbow & Line", "Normal", "B&W");
 
 	public ModeSetting markTheme = new ModeSetting("WaterMark", "Normal", "Normal", "Background");
@@ -33,7 +33,7 @@ public class HUD extends Mod{
 	
 	public HUD() {
 		super("Hud", "Displays the hud", Category.HUD);
-		addSettings(theme,markTheme,markName,custom,red,green,blue,crystalCount,totemCount,obsidianCount,gappleCount);
+		addSettings(theme,markTheme,markName,custom,customFont,red,green,blue,crystalCount,totemCount,obsidianCount,gappleCount);
 	}
 
 }
