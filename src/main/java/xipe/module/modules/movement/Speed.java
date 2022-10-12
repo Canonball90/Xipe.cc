@@ -16,13 +16,5 @@ public class Speed extends Mod{
 	
 
 	//high jump
-	@Override
-	public void onTick() {
-		nullCheck();
-		if(mc.player.isOnGround() && mc.options.jumpKey.isPressed()) {
-			mc.player.setVelocity(mc.player.getVelocity().x, 1, mc.player.getVelocity().z);
-		}
 
-		super.onTick();
-	}
 }

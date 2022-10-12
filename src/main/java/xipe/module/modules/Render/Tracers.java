@@ -45,7 +45,6 @@ public class Tracers extends Mod {
             Color c = getEntityColor(entity);
 
             if (shouldRenderEntity(entity)) {
-
                     RenderUtils.line(RenderUtils.center(), entity.getPos().add(0, entity.getStandingEyeHeight(), 0), c, matrices);
                     //RenderUtils.line(entity.getPos(), entity.getPos().add(0, entity.getStandingEyeHeight(), 0), c, matrices);
             }
