@@ -33,7 +33,7 @@ public class Blink extends Mod {
 	private boolean stopCatching;
 	
     public Blink() {
-        super("Blink", "Spoofs extreme lag so you visiblly teleport", Category.WORLD);
+        super("Blink", "Blink hack", Category.WORLD);
         addSettings(buffer, amount);
     }
     

@@ -20,7 +20,7 @@ public class ClientsideGameMode extends Mod {
     public ModeSetting mode = new ModeSetting("Mode", "Survival", "Survival", "Creative", "Spectator");
     
     public ClientsideGameMode() {
-        super("SetGamemode", "Contributed/Given by: Nitaki", Category.EXPLOIT);
+        super("SetGamemode", "Puts you in said gamemode client side", Category.EXPLOIT); //"Contributed/Given by: Nitaki" more like stolen lmao
         addSettings(mode);
     }
 

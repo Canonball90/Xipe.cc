@@ -13,7 +13,7 @@ public class PacketLogger extends Mod{
 	public BooleanSetting outgoing = new BooleanSetting("Outgoing", false);
 	
 	public PacketLogger() {
-		super("Packet Logger", "Logs", Category.WORLD);
+		super("Packet Logger", "Logs the players packet in chat (client side)", Category.WORLD);
 		addSettings(income,outgoing);
 	}
 

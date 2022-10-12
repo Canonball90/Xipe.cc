@@ -5,7 +5,7 @@ import xipe.module.Mod;
 public class DamageTint extends Mod{
 
 	public DamageTint() {
-		super("DamageTint", "Screen changes when owie", Category.RENDER);
+		super("DamageTint", "Screen effect when taking damage", Category.RENDER);
 	}
 
 }

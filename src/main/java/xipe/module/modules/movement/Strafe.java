@@ -31,7 +31,7 @@ public class Strafe extends Mod {
     public BooleanSetting autoSprint = new BooleanSetting("Auto Sprint", false);
 		
 	public Strafe() {
-		super("Strafe", "Moves, but faster", Category.MOVEMENT);
+		super("Strafe", "Walking++", Category.MOVEMENT);
 		addSettings(speed, mode, autoSprint, jump);
 	}
 	

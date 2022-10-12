@@ -17,7 +17,7 @@ public class NoSlowDown extends Mod{
 	public static NoSlowDown INSTANCE = new NoSlowDown();
 
 	public NoSlowDown() {
-		super("NoSlow", "Say no to slow", Category.MOVEMENT);
+		super("NoSlow", "No slowing down", Category.MOVEMENT);
 		addSettings(items,inventory,shift);
 	}
 	

@@ -22,7 +22,7 @@ public class Search extends Mod {
     BooleanSetting portals = new BooleanSetting("Portals", true);
 
     public Search() {
-        super("Search", "Searches for a block", Mod.Category.RENDER);
+        super("Search", "Searches for said block", Mod.Category.RENDER);
         addSettings(shulkers, portals);
     }
 

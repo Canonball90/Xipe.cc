@@ -37,7 +37,7 @@ public class KillEffect extends Mod{
     private ArrayList<PlayerEntity> playersDead = new ArrayList<>();
 
 	public KillEffect() {
-		super("KillEffect", "Shows an effect for any player's death", Category.RENDER);
+		super("KillEffect", "Shows effect on any player's death", Category.RENDER);
 		addSettings(thunder,firework,arrow,areaCloud,bat,exp,random,thunderCount,scale,scaleY,offset);
 	}
 

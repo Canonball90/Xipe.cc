@@ -34,7 +34,7 @@ public class ESP extends Mod {
 	public BooleanSetting outlineBox = new BooleanSetting("Outline box", true);
 	
 	public ESP() {
-		super("ESP", "esp.", Category.RENDER);
+		super("ESP", "ESP hack", Category.RENDER);
 		addSettings(mode,color,fillBox,outlineBox);
 	}
 	

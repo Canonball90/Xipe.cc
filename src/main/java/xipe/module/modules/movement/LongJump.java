@@ -9,7 +9,7 @@ public class LongJump extends Mod{
 	NumberSetting speed = new NumberSetting("Factor", 1, 10, 3, 1);
 
 	public LongJump() {
-		super("Long Jump", "Makes you jump really far", Category.MOVEMENT);
+		super("LongJump", "Makes you jump really far", Category.MOVEMENT);
 		addSetting(speed);
 	}
 	

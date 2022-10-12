@@ -18,7 +18,7 @@ public class ChestStealer extends Mod {
 	private static TimerUtil delayTimer = new TimerUtil();
 	
 	public ChestStealer() {
-		super("ChestStealer", "Steals items from chests", Category.WORLD);
+		super("ChestStealer", "Steals items from opened chests", Category.WORLD);
 		addSetting(delay);
 	}
 	

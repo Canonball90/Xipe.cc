@@ -17,7 +17,7 @@ public class Warning extends Mod{
 	public NumberSetting armorNum = new NumberSetting("Armor Percent", 1,100, 10,1);
 
 	public Warning() {
-		super("Warning", "Warns you about stuff (Has to have notifications enabled)", Category.COMBAT);
+		super("Warning", "Warns you if your health is low (Requiers notifications to be enabled)", Category.COMBAT);
 		addSettings(armor,health,healthNum);
 	}
 	

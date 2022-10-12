@@ -26,7 +26,7 @@ public class StorageESP extends Mod{
 	 public BooleanSetting hopper;
 
 	public StorageESP() {
-		super("StorageESP", "Allows you to see storage shit better", Category.RENDER);
+		super("StorageESP", "Allows you to see storage block", Category.RENDER);
         this.width = new NumberSetting("Width", 0.0, 20.0, 2.0, 1.0);
         this.chest = new BooleanSetting("Chest", true);
         this.eChest = new BooleanSetting("E-Chest", true);

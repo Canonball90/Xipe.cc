@@ -23,7 +23,7 @@ public class ElytraFly extends Mod{
     NumberSetting speed = new NumberSetting("Factor", 0.1, 4, 0.2, 1);
     
 	public ElytraFly() {
-		super("Elytra Fly", "Makes flying with an elytra easier", Category.MOVEMENT);
+		super("ElytraFly", "Makes flying with an elytra easier", Category.MOVEMENT);
 		addSettings(mode,autoFly,takeOff,flatFly,upEly,speed);
 		get = this;
 	}

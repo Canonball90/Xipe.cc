@@ -94,7 +94,7 @@ public class CrystalAura extends Mod {
 	public static CrystalAura instance;
 	
 	public CrystalAura() {
-		super("CrystalAura", "kill the people with funny crytsals", Category.COMBAT);
+		super("CrystalAura", "Automatically places and explode crystals", Category.COMBAT);
 		addSettings(explode, antiWeak, antiSuicide, aps, attackDelay, minHp, place, cps, autoSwitch, switchBack, oneDotTwelve, blacklistSet, raycast, minDamage, minRatio, placeDelay, sameTick, rotate, range,fade,r,g,b,a);
 		instance = this;
 	}

@@ -8,10 +8,11 @@ public class AntiAim extends Mod{
 	public ModeSetting mode = new ModeSetting("Mode", "Silent", "Silent", "Normal");
 
 	public AntiAim() {
-		super("Anti-Aim", "Spinny Spinny", Category.WORLD);
+		super("AntiAim", "", Category.WORLD);
 		addSetting(mode);
 	}
 	//ToDo: Make this work
+	//is this like a derp hack?
 	@Override
 	public void onTick() {
 		if(mode.isMode("Normal")) {

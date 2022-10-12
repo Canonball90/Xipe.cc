@@ -30,7 +30,7 @@ public class XRay extends Mod {
     
     
     public XRay() {
-        super("Xray", "See ores through blocks", Category.RENDER);
+        super("Xray", "Only render ore blocks", Category.RENDER);
        // this.setKey(GLFW.GLFW_KEY_X);
         Registry.BLOCK.forEach(block -> {
             if (isGoodBlock(block)) blocks.add(block);

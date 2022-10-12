@@ -16,5 +16,7 @@ public class Speed extends Mod{
 	
 
 	//high jump
+	
+	// no not high jump do speed instead
 
 }

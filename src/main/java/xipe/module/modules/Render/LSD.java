@@ -9,7 +9,7 @@ import xipe.module.Mod;
 public class LSD extends Mod{
 
 	public LSD() {
-		super("LSD", "Lmao ok", Category.RENDER);
+		super("LSD", "drugs", Category.RENDER);
 	}
 
 	

@@ -80,7 +80,7 @@ public class ModuleManager {
 		modules.add(new KillAura());
 		modules.add(new FakePlayer());
 		modules.add(new CrystalAura());
-		modules.add(new AutoTotem());
+		modules.add(new Offhand());
 		modules.add(new Gui());
 		modules.add(new Nuker());
 		modules.add(new Step());

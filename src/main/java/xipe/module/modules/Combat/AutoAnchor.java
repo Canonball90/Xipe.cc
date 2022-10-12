@@ -21,7 +21,7 @@ public class AutoAnchor extends Mod {
     NumberSetting delay = new NumberSetting("Delay", 0.1, 40.0, 2.0, 1);
 	
 	public AutoAnchor() {
-    	super("AutoAnchor","Autos the anchor", Category.COMBAT);
+    	super("AutoAnchor","Automatically places and breaks anchors", Category.COMBAT);
     	addSettings(range,delay);
     	}
     

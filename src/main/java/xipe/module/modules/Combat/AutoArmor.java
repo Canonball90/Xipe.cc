@@ -9,7 +9,7 @@ import xipe.module.Mod;
 public class AutoArmor extends Mod{
 
 	public AutoArmor() {
-		super("AutoArmor", "Puts armor on you", Category.COMBAT);
+		super("AutoArmor", "Automatically wears aromor in your inventory", Category.COMBAT);
 	}
 	
 	@Override

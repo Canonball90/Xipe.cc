@@ -19,7 +19,7 @@ public class FastUse extends Mod {
 	TimeHelper timer = new TimeHelper();
 	
 	public FastUse() {
-		super("FastUses", "Throw exp pots at the speed of sound", Category.WORLD);
+		super("FastUse", "Makes you use item faster", Category.WORLD);
 		addSettings(delay,swap,xp,crystal);
 	}
 	

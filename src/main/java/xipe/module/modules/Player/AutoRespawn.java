@@ -8,7 +8,7 @@ public class AutoRespawn extends Mod
     public static MinecraftClient mc;
     
     public AutoRespawn() {
-        super("AutoRespawn", "Automatically makes you respawn", Category.EXPLOIT);
+        super("AutoRespawn", "Automatically respawn", Category.EXPLOIT);
     }
     
     @Override

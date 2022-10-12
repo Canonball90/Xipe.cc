@@ -18,7 +18,7 @@ public class AutoLog extends Mod{
 	NumberSetting range = new NumberSetting("Range", 1.0, 6.0, 5.0, 0.1);
 
 	public AutoLog() {
-		super("AutoLog", "Auto disconnects you from a server when your health is low", Category.WORLD);
+		super("AutoLog", "Auto disconnects you when your health is low", Category.WORLD);
 		addSettings(mode,hp,range);
 	}
 	

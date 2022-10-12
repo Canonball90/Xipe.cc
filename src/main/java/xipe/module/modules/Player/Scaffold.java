@@ -10,7 +10,7 @@ import xipe.module.Mod;
 
 public class Scaffold extends Mod {
     public Scaffold() {
-        super("Scaffold", "",Category.WORLD);
+        super("Scaffold", "Places block under you",Category.WORLD);
 
     }
     

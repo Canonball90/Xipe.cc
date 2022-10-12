@@ -7,7 +7,7 @@ import xipe.module.Mod;
 public class Sprint extends Mod{
 
 	public Sprint() {
-		super("Sprint", "Makes you sprint", Category.MOVEMENT);
+		super("Sprint", "Makes you sprint constently", Category.MOVEMENT);
 		//this.setKey(GLFW.GLFW_KEY_V);
 	}
 

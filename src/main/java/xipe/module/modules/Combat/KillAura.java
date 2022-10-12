@@ -48,7 +48,7 @@ public class KillAura extends Mod
     public static KillAura instance;
     
     public KillAura() {
-        super("KillAura", "Automatically attacks living entities for you", Category.COMBAT);
+        super("KillAura", "Automatically attacks entities for you", Category.COMBAT);
         this.addSettings(KillAura.mode, KillAura.rotationmode, KillAura.critMode, KillAura.range, KillAura.cooldown, KillAura.priority,KillAura.render,KillAura.switchItem);
         instance = this;
     }

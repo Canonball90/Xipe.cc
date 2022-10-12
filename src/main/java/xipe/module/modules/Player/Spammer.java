@@ -36,6 +36,7 @@ public class Spammer  extends Mod {
         facts.put(3, "Xipe.cc is sexy");
         facts.put(4, "Xipe.cc is custom base!");
         facts.put(5, "Xipe.cc is best client ever");
+        facts.put(5, "Xipe.cc is client with modules in it");
         
         facts.forEach(allMessages::put);
         randomShit.forEach(allMessages::put);

@@ -22,9 +22,9 @@ public class Notifications  extends Mod{
 	@Override
 	public void onEnable() {
 		NotificationUtil.send_notification(new Notification("Some modules require this to be enabled", 250, 253, 15));
-		NotificationUtil.send_notification(new Notification("This is enable", 0, 255, 0));
-		NotificationUtil.send_notification(new Notification("This is disable", 255, 0, 0));
-		NotificationUtil.send_notification(new Notification("This is warning", 250, 253, 15));
+		NotificationUtil.send_notification(new Notification("Enabled notification", 0, 255, 0));
+		NotificationUtil.send_notification(new Notification("Disabled notification", 255, 0, 0));
+		NotificationUtil.send_notification(new Notification("Warning notification", 250, 253, 15));
 		super.onEnable();
 	}
 }

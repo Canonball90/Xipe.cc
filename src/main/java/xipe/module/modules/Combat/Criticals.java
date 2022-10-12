@@ -25,7 +25,7 @@ public class Criticals extends Mod{
 	public ModeSetting critical = new ModeSetting ("Mode", "Normal", "Normal", "Jump");
 	
 	public Criticals() {
-		super("Criticals", "Every hit is a critical hit", Category.COMBAT);
+		super("Criticals", "Allways send criticals when attacking", Category.COMBAT);
 		instance = this;
 		addSetting(critical);
 	}

@@ -18,7 +18,7 @@ public class NoRender extends Mod{
 	public BooleanSetting particles = new BooleanSetting("Crystals", true);
 
 	public NoRender() {
-		super("NoRender", "No render stuff", Category.RENDER);
+		super("NoRender", "Prevent stuff from Rendering", Category.RENDER);
 	}
 	
 

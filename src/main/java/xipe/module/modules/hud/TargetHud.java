@@ -11,7 +11,7 @@ public class TargetHud extends Mod{
 	public NumberSetting range = new NumberSetting("Range", 1, 50.0, 35.0, 1);
 
 	public TargetHud() {
-		super("TargetHud", "Target get Hud", Category.HUD);
+		super("TargetHud", "Displays information about player target", Category.HUD);
 		addSettings(color,color1,color2,range);
 	}
 

@@ -10,7 +10,7 @@ public class ItemViewModel extends Mod {
     public static ItemViewModel INSTANCE;
 
     public ItemViewModel() {
-    	super("ItemViewModel", "Changes the color of totem particles", Category.RENDER); 
+    	super("ItemViewModel", "Customize your hands", Category.RENDER); 
     	addSettings(x,y,z,swingLeft,swingRight);
     	 INSTANCE = this;
     }

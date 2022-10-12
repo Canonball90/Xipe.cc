@@ -31,7 +31,7 @@ public class Quiver extends Mod{
 	public NumberSetting delay = new NumberSetting("Delay", 1, 30, 2, 0.1);
 
 	public Quiver() {
-		super("Quiver", "Shoots good arrows in the air to gib goofy ass effect", Category.COMBAT);
+		super("Quiver", "Shoots arrows with positive effects at yourself", Category.COMBAT);
 		addSettings(strength,speed,lowMode,onlyOnGround,checkEffects,silentBow,delay);
 	}
 

@@ -14,7 +14,7 @@ public class Jesus extends Mod{
 	NumberSetting velStrength = new NumberSetting("Velocity Strength", 0.0003, 0.3, 0.1, 0.0001);
 
 	public Jesus() {
-		super("Jesus", "Makes you water go boom", Category.MOVEMENT);
+		super("Jesus", "Allows you to walk on water", Category.MOVEMENT);
 		addSettings(mode,speed,velStrength);
 	}
 	

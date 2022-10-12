@@ -5,7 +5,7 @@ import xipe.module.Mod;
 public class MoonGravity extends Mod{
 
 	public MoonGravity() {
-		super("MoonGravity", "Yea", Category.MOVEMENT);
+		super("MoonGravity", "Simulates moon gravity", Category.MOVEMENT);
 	}
 	
 	@Override

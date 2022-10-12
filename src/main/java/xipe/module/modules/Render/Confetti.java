@@ -15,7 +15,7 @@ import java.awt.*;
 public class Confetti extends Mod {
     //Thank you Walaryne for cool module
     public Confetti() {
-    	super("NoRender", "Changes the color of totem particles", Category.RENDER); 
+    	super("Confetti", "Changes the color of totem particles", Category.RENDER); 
     	addSettings(rainbow,red,green,blue);
     }
 

@@ -6,7 +6,7 @@ public class HighJump extends Mod {
 
 
     public HighJump() {
-        super("High Jump", "Jump Higher", Category.MOVEMENT);
+        super("HighJump", "Jumps Higher", Category.MOVEMENT);
     }
 
     @Override

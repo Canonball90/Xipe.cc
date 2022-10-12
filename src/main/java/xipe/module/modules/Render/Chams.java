@@ -13,7 +13,7 @@ public class Chams extends Mod{
 	public BooleanSetting crystals = new BooleanSetting("Crystals", true);
 
 	public Chams() {
-		super("Chams", "Basically better esp",Category.RENDER);
+		super("Chams", "Renders players and crystals trough walls",Category.RENDER);
 		addSettings(players,crystals);
 		get = this;
 	}

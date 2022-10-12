@@ -26,7 +26,7 @@ public class FastPlace extends Mod{
 	public final TimerUtil timer = new TimerUtil();
 
 	public FastPlace() {
-		super("Fast Place", "Fast does stuff", Category.WORLD);
+		super("FastPlace", "Places block faster", Category.WORLD);
 		addSettings(delay,startDelay,autoPlace,autoSwitch,onlyXP);
 	}
 	

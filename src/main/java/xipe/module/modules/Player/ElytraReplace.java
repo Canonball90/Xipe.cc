@@ -13,7 +13,7 @@ public class ElytraReplace extends Mod{
 	 private boolean jump = false;
 
 	public ElytraReplace() {
-		super("Elytra Replace", "Auto Replaces your elytra when it brakes", Category.WORLD);
+		super("Elytra Replace", "Auto Replaces your elytra when it breakes", Category.WORLD);
 	}
 	
 	 @Override

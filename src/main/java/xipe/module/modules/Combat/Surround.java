@@ -19,7 +19,7 @@ public class Surround extends Mod{
 	ModeSetting block = new ModeSetting("Mode", "Obsidian", "Obsidian", "Bedrock", "CobbleStone");
 
 	public Surround() {
-		super("Surround", "Surrounds u with blocks", Category.COMBAT);
+		super("Surround", "Surrounds you with blocks to create a safehole", Category.COMBAT);
 		addSetting(block);
 	}
 	

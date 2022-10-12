@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 public class Trigger extends Mod{
 	
 	public Trigger() {
-		super("Trigger", "Automaticly attack the entity you look at", Category.COMBAT);
+		super("Trigger", "Automaticly attacks the entity you look at", Category.COMBAT);
 	}
 	
 	int cooldown = 4;

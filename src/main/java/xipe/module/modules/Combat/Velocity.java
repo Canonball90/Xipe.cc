@@ -15,7 +15,7 @@ public class Velocity extends Mod {
 	public NumberSetting vertical = new NumberSetting("Vertical", 0, 200, 0, 1);
 	
 	public Velocity() {
-		super("Velocity", "Attacks select surrounding entities", Category.MOVEMENT);
+		super("Velocity", "Customize the knockback you get", Category.MOVEMENT);
 		addSettings(horizontal, vertical);
 		get = this;
 	}

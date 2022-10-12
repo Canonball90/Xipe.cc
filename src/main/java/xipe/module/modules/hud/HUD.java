@@ -32,7 +32,7 @@ public class HUD extends Mod{
 	public static final HUD INSTANCE = new HUD();
 	
 	public HUD() {
-		super("Hud", "Displays the hud", Category.HUD);
+		super("Hud", "HUD customization", Category.HUD);
 		addSettings(theme,markTheme,markName,custom,customFont,red,green,blue,crystalCount,totemCount,obsidianCount,gappleCount);
 	}
 

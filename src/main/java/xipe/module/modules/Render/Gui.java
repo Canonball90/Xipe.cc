@@ -44,7 +44,7 @@ public class Gui extends Mod{
 	public static final Gui INSTANCE = new Gui();
 	
 	public Gui() {
-		super("ClickGui", "Clicks the Gui", Category.RENDER);
+		super("ClickGui", "ClickGUI customization", Category.RENDER);
 		addSettings(theme,description,ke,red,green,blue,sep,pRed,pGreen,pBlue,topBar,outline,bottomOutline,transparent,cFont,modNum,Nicons,custom,rainbow,rParticals,scrollSpeed);
 	}
 	

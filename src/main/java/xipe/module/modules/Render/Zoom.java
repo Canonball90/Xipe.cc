@@ -9,7 +9,7 @@ public class Zoom extends Mod{
     NumberSetting zoom = new NumberSetting("Zoom", 1, 10, 10, 1);
 
     public Zoom() {
-        super("Zoom", "Zooms in your view", Category.RENDER);
+        super("Zoom", "zoom", Category.RENDER);
     }
 
     Double oldFOV;

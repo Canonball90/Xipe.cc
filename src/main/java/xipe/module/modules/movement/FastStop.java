@@ -8,7 +8,7 @@ public class FastStop extends Mod{
 	BooleanSetting airStop;
 
 	public FastStop() {
-		super("FastStop", "FastStop", Category.MOVEMENT);
+		super("FastStop", "Makes you stop instantly", Category.MOVEMENT);
 		this.airStop = new BooleanSetting("Air-Stop", true);
 	}
 	
