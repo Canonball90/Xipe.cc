@@ -129,7 +129,7 @@ public class Hud {
 		
 	}
 	
-	public static void renderArrayList(MatrixStack matrices) {
+		public static void renderArrayList(MatrixStack matrices) {
 		int index = 0;
 		int sWidth = mc.getWindow().getScaledWidth();
 		int sHeight = mc.getWindow().getScaledHeight();
@@ -142,34 +142,75 @@ public class Hud {
 		}
 		
 		List<Mod> enabled = ModuleManager.INSTANCE.getEnabledModules();
-		
-		enabled.sort(Comparator.comparing(m -> (int)mc.textRenderer.getWidth(((Mod)m).getDisplayName())).reversed());
+		if(ModuleManager.INSTANCE.getModule(HUD.class).customFont.isEnabled()){
+
+			enabled.sort(Comparator.comparing(m -> (int)nuitofont.getStringWidth(((Mod)m).getDisplayName(), false)).reversed());
+		}else{
+			enabled.sort(Comparator.comparing(m -> (int)mc.textRenderer.getWidth(((Mod)m).getDisplayName())).reversed());
+		}
+
 		
 		for(Mod mod : enabled) {
 			int fWidth = mc.textRenderer.getWidth(mod.getDisplayName());
 			int fHeight = mc.textRenderer.fontHeight;
+			int fcWidth = (int) nuitofont.getStringWidth(mod.getDisplayName(), false);
+			int fcHeight = (int) nuitofont.getStringHeight(mod.getDisplayName(), false);
 			
 			int slideroption = 0;
 			int offset = 0 + index* (fHeight+slideroption);
+			int offsetc = 0 + index* ((int)fcHeight+slideroption);
 			int offset2 = 0;
+			boolean font = ModuleManager.INSTANCE.getModule(HUD.class).customFont.isEnabled();
+
 			
-			
+
 		if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("Line")) {
-			DrawableHelper.fill(matrices, sWidth,  offset+ 3, sWidth - 2, slideroption + fHeight + offset, -1);
-			mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 10 + (index * mc.textRenderer.fontHeight), -1);
-		}else if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("Rainbow & Line")) {
-			DrawableHelper.fill(matrices, sWidth - fWidth - 5, offset, sWidth, slideroption + fHeight + offset, 0x90000000);//0x90000000
-			mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 2) - mc.textRenderer.getWidth(mod.getDisplayName()), 1+(index * mc.textRenderer.fontHeight), -1);
+			if(font){
+				DrawableHelper.fill(matrices, sWidth,  offsetc- 2, sWidth - 2, slideroption + fcHeight + offsetc + 2, rainbow(300));
+				nuitofont.draw(matrices, mod.getDisplayName(), 1 + (int) ((sWidth - 4) - fcWidth), 1 + (index * fcHeight) - 5, -1, false);
+			}else {
+				DrawableHelper.fill(matrices, sWidth, offset - 2, sWidth - 2, slideroption + fHeight + offset + 2, -1);
+
+
+				mc.textRenderer.draw(matrices, mod.getDisplayName(), 1 + (int) ((sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName())), 1 + (int) ((index * mc.textRenderer.fontHeight)), -1);
+			}
+		}else if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("Box")) {
+			if(font){
+				DrawableHelper.fill(matrices, sWidth - fcWidth - 5, offsetc, sWidth, slideroption + fcHeight + offsetc, 0x90000000);//0x90000000
+				nuitofont.draw(matrices, mod.getDisplayName(), (sWidth - 2) - fcWidth, (index * fcHeight)- 5, -1, false);
+			}else {
+				DrawableHelper.fill(matrices, sWidth - fWidth - 5, offset, sWidth, slideroption + fHeight + offset, 0x90000000);//0x90000000
+				mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 2) - mc.textRenderer.getWidth(mod.getDisplayName()), 1 + (index * mc.textRenderer.fontHeight), -1);
+			}
 		}else if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("Normal")) {
-			mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 10 + (index * mc.textRenderer.fontHeight), -1);
+			if(font){
+				nuitofont.draw(matrices, mod.getDisplayName(), (sWidth - 4) - fcWidth, 1+(index * fcHeight), -1, false);
+			}else {
+				mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 1+(index * mc.textRenderer.fontHeight), -1);
+			}
 		}else if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("Rainbow")) {
-			DrawableHelper.fill(matrices, sWidth - fWidth - 9, offset, sWidth - fWidth +76, slideroption + fHeight + offset+1, rainbow(300));
-			DrawableHelper.fill(matrices, sWidth - fWidth - 8, offset, sWidth, slideroption + fHeight + offset, new Color(15,15,15,250).getRGB());//0x90000000
-			mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 1+(index * mc.textRenderer.fontHeight), -1);
+			if(font) {
+				DrawableHelper.fill(matrices, sWidth - fcWidth - 9, offsetc, sWidth - (int) fcWidth + 76, slideroption + fcHeight + offsetc + 1, rainbow(300));
+				DrawableHelper.fill(matrices, sWidth - fcWidth - 8, offsetc, sWidth, slideroption + (int) fcHeight + offsetc, new Color(15, 15, 15, 250).getRGB());//0x90000000
+				nuitofont.draw(matrices, mod.getDisplayName(), (sWidth - 4) - fcWidth, (index * fcHeight) - 5, -1, false);
+			}else {
+				DrawableHelper.fill(matrices, sWidth - fWidth - 9, offset, sWidth - fWidth +76, slideroption + fHeight + offset+1, rainbow(300));
+					DrawableHelper.fill(matrices, sWidth - fWidth - 8, offset, sWidth, slideroption + fHeight + offset, new Color(15,15,15,250).getRGB());//0x90000000
+					mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 1+(index * mc.textRenderer.fontHeight), -1);
+			}
 		}else if(ModuleManager.INSTANCE.getModule(HUD.class).theme.isMode("B&W")) {
-			DrawableHelper.fill(matrices, sWidth - fWidth - 9, offset, sWidth - fWidth +76, slideroption + fHeight + offset+1, new Color(255,255,255).getRGB());
-			DrawableHelper.fill(matrices, sWidth - fWidth - 8, offset, sWidth, slideroption + fHeight + offset, new Color(0,0,0).getRGB());//0x90000000
-			mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 1+(index * mc.textRenderer.fontHeight), -1);
+			if(font){
+
+					DrawableHelper.fill(matrices, sWidth - fcWidth - 9, offsetc, sWidth - (int) fcWidth + 76, slideroption + fcHeight + offsetc + 1, new Color(255,255,255).getRGB());
+					DrawableHelper.fill(matrices, sWidth - fcWidth - 8, offsetc, sWidth, slideroption + (int) fcHeight + offsetc, new Color(0,0,0).getRGB());//0x90000000
+					nuitofont.draw(matrices, mod.getDisplayName(), (sWidth - 4) - fcWidth, (index *fcHeight) - 5, -1, false);
+			}else {
+
+
+				DrawableHelper.fill(matrices, sWidth - fWidth - 9, offset, sWidth - fWidth + 76, slideroption + fHeight + offset + 1, new Color(255, 255, 255).getRGB());
+				DrawableHelper.fill(matrices, sWidth - fWidth - 8, offset, sWidth, slideroption + fHeight + offset, new Color(0, 0, 0).getRGB());//0x90000000
+				mc.textRenderer.draw(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 1 + (index * mc.textRenderer.fontHeight), -1);
+			}
 		}
 	
         index++;
