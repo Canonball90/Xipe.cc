@@ -67,6 +67,7 @@ public class Client implements ModInitializer{
 	public void onKeyPress(int key, int action) {
 		if(action == GLFW.GLFW_PRESS) {
 			for(Mod module : ModuleManager.INSTANCE.getModules()) {
+				if(mc.currentScreen instanceof ChatScreen) return;
 				if(key == module.getKey()) module.toggle();
 			}
 			
