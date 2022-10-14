@@ -18,7 +18,6 @@ import xipe.module.modules.Combat.CrystalAura;
 import xipe.module.modules.Combat.KillAura;
 import xipe.module.modules.Combat.Criticals.InteractType;
 import xipe.module.modules.Player.PacketLogger;
-import xipe.module.modules.exploit.FastProjectile;
 import xipe.module.modules.exploit.MountBypass;
 import xipe.utils.ReflectionHelper;
 import xipe.utils.player.ChatUtil;
@@ -74,9 +73,6 @@ public class MixinClientConnection
 	    			}
 	    		}
 	    	}
-	    	if(ModuleManager.INSTANCE.getModule(FastProjectile.class).isEnabled()) {
-	    		FastProjectile.get.onPacketSend(event);
-	    	} 
 	 
 	 }
 

@@ -38,7 +38,7 @@ public class Frame {
 	int offset = ((height / 2) - mc.textRenderer.fontHeight / 2);
 	
 	protected static FontRenderer nuitofont = new FontRenderer("Comfortaa-Regular.ttf", new Identifier("xipe", "fonts"), 20);
-	protected static FontRenderer yahoo = new FontRenderer("Yahoo.ttf", new Identifier("xipe", "fonts"), 25);
+	protected static FontRenderer nuitofontL = new FontRenderer("Comfortaa-Regular.ttf", new Identifier("xipe", "fonts"), 20);
 	protected static FontRenderer logoFont2 = new FontRenderer("logo.ttf", new Identifier("xipe", "fonts"), 20);
 	protected static FontRenderer logoFont = new FontRenderer("logo.ttf", new Identifier("xipe", "fonts"), 10);
 	
@@ -105,7 +105,7 @@ public class Frame {
 			//nuitofont.draw(matrices, "more stuff on this soon!",555, 5, -1, false);
 			//mc.textRenderer.drawWithShadow(matrices, "", mouseX, mouseY, offset);
 		}
-		
+
 		//DrawableHelper.drawTexture(matrices, x + offset + 120, y + offset + 8, x + width, y + height, 10, 10, 10, 10);
 	}
 	

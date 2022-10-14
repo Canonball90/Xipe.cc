@@ -4,6 +4,7 @@ import com.google.common.eventbus.Subscribe;
 
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
 import xipe.event.events.ParticleEvent;
 import xipe.module.Mod;
 import xipe.module.settings.BooleanSetting;
@@ -36,6 +37,7 @@ public class NoRender extends Mod{
             mc.player.removeStatusEffectInternal(StatusEffects.BLINDNESS);
 
         }
+        mc.options.setSoundVolume(SoundCategory.WEATHER, 0);
     }
 
     public static NoRender get;

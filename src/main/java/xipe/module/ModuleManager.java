@@ -162,6 +162,7 @@ public class ModuleManager {
 		modules.add(new TNTimer());
 		modules.add(new Search());
 		modules.add(new HighJump());
+		modules.add(new Trail());
 		}
 	
 	public Mod getModuleByName(String moduleName) {

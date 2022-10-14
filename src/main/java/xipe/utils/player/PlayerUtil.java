@@ -8,6 +8,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
@@ -105,4 +106,7 @@ public class PlayerUtil {
 	        if (playerListEntry == null) return 0;
 	        return playerListEntry.getLatency();
 	    }
+
+        //get the amount of deaths the player has
+
 }

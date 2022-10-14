@@ -1,7 +1,10 @@
 package xipe.module.modules.Render;
 
 import java.awt.Color;
+import java.io.IOException;
 
+import com.google.gson.JsonSyntaxException;
+import net.minecraft.util.Identifier;
 import org.lwjgl.opengl.GL11;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -39,10 +42,11 @@ public class ESP extends Mod {
 	}
 	
 	private static final Formatting Gray = Formatting.GRAY;
-	
-	@Override
+
+    @Override
 	public void onWorldRender(MatrixStack matrices) {
 		this.setDisplayName("ESP" + Gray + "["+mode.getMode()+"]");
+
 		if (this.isEnabled()) {
 			for (Entity entity  : mc.world.getEntities()) {
 				if (!(entity instanceof ClientPlayerEntity)) {

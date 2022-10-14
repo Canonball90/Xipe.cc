@@ -13,6 +13,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
@@ -289,25 +290,31 @@ public class Hud {
 	}
 	
 	public static void seshInfo(MatrixStack matrices) {
-		
+
 		int sWidth = mc.getWindow().getScaledWidth();
 		int sHeight = mc.getWindow().getScaledHeight();
-		
+
 		int x1 = ModuleManager.INSTANCE.getModule(SessionInfo.class).x.getValueInt();
 		int y1 = ModuleManager.INSTANCE.getModule(SessionInfo.class).y.getValueInt();
-		
-		DrawableHelper.fill(matrices, -x1+sWidth/2, y1 + 5+sHeight/2, -x1+sWidth/2+140, y1+sHeight/2+60, new Color(0,0,0,150).getRGB());
-		DrawableHelper.fill(matrices, -x1+sWidth/2, y1 + 5+sHeight/2, -x1+sWidth/2+140, y1+sHeight/2+7, rainbow(300));
-		
-		nuitofont.draw(matrices, "SESSION INFO", -x1 + 28 +sWidth/2, y1 + 5 +sHeight/2, -1, false);
-		nuitofont.draw(matrices, " Name: " + mc.player.getName().getString(), -x1+sWidth/2, y1 + 15 +sHeight/2, -1, false);
-		nuitofont.draw(matrices, " FPS: " + mc.fpsDebugString.split(" ")[0], -x1+sWidth/2, y1 + 35 +sHeight/2, -1, false);
-		if(mc.world.getServer() == null) {
-			nuitofont.draw(matrices, " Server: " + mc.world.getServer(), -x1+sWidth/2, y1 + 25 +sHeight/2, -1, false);
-		}else {
-		nuitofont.draw(matrices, " Server: " + mc.world.getServer().getServerIp(), -x1+sWidth/2, y1 + 25 +sHeight/2, -1, false);
-		}
-	}
+
+		HitResult hit = mc.crosshairTarget;
+
+		int red = ModuleManager.INSTANCE.getModule(TargetHud.class).color.getValueInt();
+		int green = ModuleManager.INSTANCE.getModule(TargetHud.class).color1.getValueInt();
+		int blue = ModuleManager.INSTANCE.getModule(TargetHud.class).color2.getValueInt();
+
+		int deathcount = mc.player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.DEATHS));
+
+
+				DrawableHelper.fill(matrices, -x1 + sWidth / 2, y1 + 5 + sHeight / 2, -x1 + sWidth / 2 + 140, y1 + sHeight / 2 + 60, new Color(0, 0, 0, 150).getRGB());
+				DrawableHelper.fill(matrices, -x1 + sWidth / 2, y1 + 5 + sHeight / 2, -x1 + sWidth / 2 + 140, y1 + sHeight / 2 + 7, rainbow(300));
+
+				nuitofont.draw(matrices, "SESSION INFO", -x1 + 28 + sWidth / 2, y1 + 5 + sHeight / 2, -1, false);
+				nuitofont.draw(matrices, " Name: " + mc.player.getName().getString(), -x1 + sWidth / 2, y1 + 15 + sHeight / 2, -1, false);
+				nuitofont.draw(matrices, " FPS: " + mc.fpsDebugString.split(" ")[0], -x1 + sWidth / 2, y1 + 35 + sHeight / 2, -1, false);
+
+				nuitofont.draw(matrices, " Kills: " + mc.player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Stats.PLAYER_KILLS)), -x1 + sWidth / 2, y1 + 25 + sHeight / 2, -1, false);
+			}
 	
 	public static void onTime(MatrixStack matrices) {
 	

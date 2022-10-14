@@ -19,6 +19,10 @@ import java.util.stream.Stream;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 
 public class Utils {
 
@@ -195,6 +199,13 @@ public class Utils {
             InputStream in = _send("application/json", HttpResponse.BodyHandlers.ofInputStream());
             return in == null ? null : gson.fromJson(new InputStreamReader(in), type);
         }
+    }
+
+    public static Vec3d getInterpolatedEntityPosition(Entity entity) {
+        Vec3d a = entity.getPos();
+        Vec3d b = new Vec3d(entity.prevX, entity.prevY, entity.prevZ);
+        float p = MinecraftClient.getInstance().getTickDelta();
+        return new Vec3d(MathHelper.lerp(p, b.x, a.x), MathHelper.lerp(p, b.y, a.y), MathHelper.lerp(p, b.z, a.z));
     }
 
     public static Request get(String url) {

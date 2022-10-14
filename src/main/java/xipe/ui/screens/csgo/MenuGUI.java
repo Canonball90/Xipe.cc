@@ -7,6 +7,7 @@ import java.util.Random;
 
 import ladysnake.satin.api.managed.ManagedShaderEffect;
 import ladysnake.satin.api.managed.ShaderEffectManager;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -36,12 +37,6 @@ public class MenuGUI extends Screen {
 		 MenuGUI.searchBox = new TextBox(0, 0, 100, 15, "#FFFFFF");
 		           //20
 		int offset = 30;
-			frames.add(new Cframe(Category.COMBAT, 150, 40, 40, 20));
-			frames.add(new Cframe(Category.MOVEMENT, offset, 40, 80, 20));
-			frames.add(new Cframe(Category.EXPLOIT, offset, 140, 160, 20));
-			frames.add(new Cframe(Category.HUD, offset, 140, 40, 240));
-			frames.add(new Cframe(Category.RENDER, offset, 140, 40, 20));
-			frames.add(new Cframe(Category.WORLD, offset, 140, 40, 20));
 			//offset += 150;
 	}
 	
@@ -61,6 +56,9 @@ public class MenuGUI extends Screen {
         }
         
         DrawableHelper.fill(matrices, 600, 100, 100, 400, new Color(35,35,35,200).getRGB());
+
+		DrawableHelper.fill(matrices, 300, 200, 200, 300, new Color(46, 253, 0, 255).getRGB());
+
 		
 		for(Cframe frame : frames) {
 			frame.render(matrices, mouseX, mouseY, delta);

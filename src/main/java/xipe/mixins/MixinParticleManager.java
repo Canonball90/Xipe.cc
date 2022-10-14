@@ -27,7 +27,7 @@ public abstract class MixinParticleManager {
         Client.EventBus.post(event);
 
         if (event.isCancelled()) {
-            if (parameters.getType() == ParticleTypes.FLASH) info.setReturnValue(createParticle(parameters, x, y, z, velocityX, velocityY, velocityZ));
+            if (parameters.getType() == ParticleTypes.EXPLOSION) info.setReturnValue(createParticle(parameters, x, y, z, velocityX, velocityY, velocityZ));
             else info.cancel();
         }
     }

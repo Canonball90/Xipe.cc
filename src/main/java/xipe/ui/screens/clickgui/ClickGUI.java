@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.client.MinecraftClient;
 import org.lwjgl.glfw.GLFW;
 
 import ladysnake.satin.api.managed.ManagedShaderEffect;
@@ -60,7 +61,7 @@ public class ClickGUI extends Screen {
         for(Particle particle : this.particles) {
             particle.render(matrices);
         }
-		
+
 		for(Frame frame : frames) {
 			frame.render(matrices, mouseX, mouseY, delta);
 			frame.updatePosition(mouseX, mouseY);
