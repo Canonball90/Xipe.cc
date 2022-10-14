@@ -163,6 +163,7 @@ public class ModuleManager {
 		modules.add(new Search());
 		modules.add(new HighJump());
 		modules.add(new Trail());
+		modules.add(new SlowWalk());
 		}
 	
 	public Mod getModuleByName(String moduleName) {

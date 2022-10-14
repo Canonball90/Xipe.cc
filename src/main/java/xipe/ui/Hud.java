@@ -99,6 +99,7 @@ public class Hud {
 		if (ModuleManager.INSTANCE.getModule(xipe.module.modules.hud.Notifications.class).isEnabled()) Notifs(matrices);
 		if (ModuleManager.INSTANCE.getModule(Coords.class).isEnabled()) XYZ(matrices);
 		if (ModuleManager.INSTANCE.getModule(PotionHud.class).isEnabled()) potionEffect(matrices);
+		if (ModuleManager.INSTANCE.getModule(HUD.class).speed.isEnabled()) speedHud(matrices);
 		
 		int index = 0;
 		int sWidth = mc.getWindow().getScaledWidth();
@@ -488,6 +489,12 @@ public class Hud {
 				nuitofont.draw(matrices, " Strength: " + mc.player.getStatusEffect(StatusEffects.STRENGTH).getDuration(), -getX+sWidth/5 + 3, 448, -1, false);
 				DrawableHelper.fill(matrices,  -getX+sWidth/5+5, getY+sHeight/5 + 37, (int) (-getX+sWidth/5 + (mc.player.getStatusEffect(StatusEffects.STRENGTH).getDuration()/2.5) + 10), getY+sHeight/5 + 39, new Color(24,244,24).getRGB());
 			}
+			}
+
+			public static void speedHud(MatrixStack matrices) {
+
+					mc.textRenderer.drawWithShadow(matrices, String.format("Speed: " + EntityUtils.getSpeed()), 2, 2, -1);
+
 			}
 	    }
 	    

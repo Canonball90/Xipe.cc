@@ -27,13 +27,14 @@ public class HUD extends Mod{
 	public BooleanSetting totemCount = new BooleanSetting("Totem Count", false);
 	public BooleanSetting obsidianCount = new BooleanSetting("Obsidian Count", false);
 	public BooleanSetting gappleCount = new BooleanSetting("Gapple Count", false);
+	public BooleanSetting speed = new BooleanSetting("Speed", false);
 	
 	
 	public static final HUD INSTANCE = new HUD();
 	
 	public HUD() {
 		super("Hud", "HUD customization", Category.HUD);
-		addSettings(theme,markTheme,markName,custom,customFont,red,green,blue,crystalCount,totemCount,obsidianCount,gappleCount);
+		addSettings(theme,markTheme,markName,custom,customFont,red,green,blue,crystalCount,totemCount,obsidianCount,gappleCount,speed);
 	}
 
 }
