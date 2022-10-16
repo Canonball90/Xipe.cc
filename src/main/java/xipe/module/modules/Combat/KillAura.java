@@ -54,12 +54,12 @@ public class KillAura extends Mod
     }
     
     private static final Formatting Gray = Formatting.GRAY;
+    public final List<LivingEntity> targets = (List)Lists.newArrayList();
     
     @Override
     public void onTick() {
     	this.setDisplayName("KillAura" + Gray + "["+mode.getMode()+"]");
         if (this.isEnabled() && this.mc.world != null) {
-           final List<LivingEntity> targets = (List)Lists.newArrayList();
             if (this.mc.world.getEntities() != null) {
                 for (final Entity e : this.mc.world.getEntities()) {
                     if (e instanceof LivingEntity && e != this.mc.player && this.mc.player.distanceTo(e) <= KillAura.range.getValue()) {

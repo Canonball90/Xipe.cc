@@ -164,6 +164,8 @@ public class ModuleManager {
 		modules.add(new HighJump());
 		modules.add(new Trail());
 		modules.add(new SlowWalk());
+		modules.add(new AutoPopbob());
+		modules.add(new AutoSex());
 		}
 	
 	public Mod getModuleByName(String moduleName) {

@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
@@ -16,9 +14,7 @@ import xipe.module.Mod.Category;
 import xipe.module.ModuleManager;
 import xipe.module.modules.Render.Gui;
 import xipe.ui.screens.clickgui.setting.Component;
-import xipe.ui.screens.utils.Animation;
 import xipe.utils.font.FontRenderer;
-import xipe.utils.world.TimerUtil;
 
 public class Frame {
 

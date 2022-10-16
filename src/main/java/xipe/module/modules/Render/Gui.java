@@ -14,8 +14,8 @@ public class Gui extends Mod{
 	//BooleanSettings
 	public BooleanSetting topBar = new BooleanSetting("TopBar", false);
 	public BooleanSetting outline = new BooleanSetting("Outline", true);
-	public BooleanSetting cFont = new BooleanSetting("Custom Font", false);
-	public BooleanSetting modNum= new BooleanSetting("Module Count", true);
+	public BooleanSetting cFont = new BooleanSetting("Custom Font", true);
+	public BooleanSetting modNum= new BooleanSetting("Module Count", false);
 	public BooleanSetting custom = new BooleanSetting("Custom Color", false);
 	public BooleanSetting rainbow = new BooleanSetting("Rainbow", false);
 	public BooleanSetting bottomOutline = new BooleanSetting("Bottom Line", true);
@@ -37,7 +37,7 @@ public class Gui extends Mod{
 	
 	//ModeSettings
 	public ModeSetting description = new ModeSetting("Description", "Mode1", "Mode1", "Mode2", "Mode3", "Topbar");
-	public ModeSetting ke = new ModeSetting("Button", "+", "+", "...", "keybind");
+	public ModeSetting ke = new ModeSetting("Button", "...", "+", "...", "keybind");
 	public ModeSetting theme = new ModeSetting("Theme", "Original", "Original", "Win98", "Sigma Old");
 	public ModeSetting sep = new ModeSetting("", " ", " ", " ", " ");
 	

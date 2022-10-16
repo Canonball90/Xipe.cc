@@ -21,6 +21,7 @@ import net.minecraft.util.hit.HitResult;
 import xipe.Client;
 import xipe.module.Mod;
 import xipe.module.ModuleManager;
+import xipe.module.modules.Combat.KillAura;
 import xipe.module.modules.Render.Gui;
 import xipe.module.modules.hud.Coords;
 import xipe.module.modules.hud.HUD;
@@ -496,6 +497,40 @@ public class Hud {
 					mc.textRenderer.drawWithShadow(matrices, String.format("Speed: " + EntityUtils.getSpeed()), 2, 2, -1);
 
 			}
+
+	public static void TargetHudRecode(MatrixStack matrices) {
+		HitResult hit = mc.crosshairTarget;
+		int sWidth = mc.getWindow().getScaledWidth();
+		int sHeight = mc.getWindow().getScaledHeight();
+
+		int red = ModuleManager.INSTANCE.getModule(TargetHud.class).color.getValueInt();
+		int green = ModuleManager.INSTANCE.getModule(TargetHud.class).color1.getValueInt();
+		int blue = ModuleManager.INSTANCE.getModule(TargetHud.class).color2.getValueInt();
+
+		if (mc.player != null) {
+			if (hit != null && hit.getType() == HitResult.Type.ENTITY) {
+				if (((EntityHitResult) hit).getEntity() instanceof PlayerEntity player) {
+					target = player;
+				}
+			} else if (target == null) return;
+
+			int maxDistance = ModuleManager.INSTANCE.getModule(TargetHud.class).range.getValueInt();
+			if (!(target == null)) {
+				if (target.isDead() || mc.player.squaredDistanceTo(target) > maxDistance) target = null;
+			}
+
+			if (target != null) {
+				RenderUtils.renderRoundedQuad(matrices, new Color(red,green,blue, 200), 10+sWidth/2, 10+sHeight/2, 10+sWidth/2+90, 5+sHeight/2+55, 5, 10);
+				mc.textRenderer.drawWithShadow(matrices, target.getName(), 10+sWidth/2+6, 10+sHeight/2+5, -1);
+				RenderUtils.renderRoundedQuad(matrices, new Color(24,24,24), 10+sWidth/2+5, 10+sHeight/2+18, 10+sWidth/2+85, 10+sHeight/2 + 28, 3, 10);
+				RenderUtils.renderRoundedQuad(matrices, target.getHealth() < 10 ? new Color(244,24,24) : new Color(24,244,24), 10+sWidth/2+5, 10+sHeight/2+18, 10+sWidth/2 + (target.getHealth()*4) + 5, 10+sHeight/2+ 28, 3, 10);
+				mc.textRenderer.drawWithShadow(matrices, "Distance: ", 10+sWidth/2+6, 10+sHeight/2+30, -1);
+				RenderUtils.renderRoundedQuad(matrices, new Color(24,24,24), 10+sWidth/2+5, 10+sHeight/2+40, 10+sWidth/2+75, 10+sHeight/2 + 45, 3, 10);
+				RenderUtils.renderRoundedQuad(matrices, new Color(24,244,24), 10+sWidth/2+5, 10+sHeight/2+40, 10+sWidth/2 + (mc.player.distanceTo(target)*10) + 5, 10+sHeight/2+ 45, 3, 10);
+				//Client.INSTANCE.logger.info(target);
+			}
+		}
+	}
 	    }
 	    
 
